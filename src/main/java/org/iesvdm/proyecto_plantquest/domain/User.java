@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     @EqualsAndHashCode.Include
-    private Long id;
+    private Long ID;
 
     @Column(name = "username")
     private String username;

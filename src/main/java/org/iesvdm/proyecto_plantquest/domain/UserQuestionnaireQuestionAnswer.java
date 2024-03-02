@@ -15,21 +15,21 @@ public class UserQuestionnaireQuestionAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long ID;
 
     @ManyToOne
     @JoinColumn(name = "userID")
-    private long userID;
+    private Long userID;
 
     @ManyToOne
     @JoinColumn(name = "questionnaireID")
-    private long questionnaireID;
+    private Long questionnaireID;
 
     @ManyToOne
     @JoinColumn(name = "questionID")
-    private long questionID;
+    private Long questionID;
 
     @ManyToOne
     @JoinColumn(name = "answerID")
-    private long answerID;
+    private Long answerID;
 }

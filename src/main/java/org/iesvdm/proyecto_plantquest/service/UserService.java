@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 @Service
@@ -21,5 +20,17 @@ public class UserService {
     //probar excepcion: predeterminadas o propias?
     public User one(Long id) throws ChangeSetPersister.NotFoundException {
         return this.userRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    }
+
+    public User replace(Long id, User user) throws ChangeSetPersister.NotFoundException {
+        return this.userRepository.findById(id).map(u -> (id.equals(user.getID()) ?
+                this.userRepository.save(user) : null))
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+    }
+
+    public void delete(Long id) throws ChangeSetPersister.NotFoundException {
+        this.userRepository.findById(id).map(u -> {this.userRepository.delete(u);
+                return u;})
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 }
