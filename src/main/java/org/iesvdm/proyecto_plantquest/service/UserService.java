@@ -18,7 +18,7 @@ public class UserService {
     public List<User> all() {return this.userRepository.findAll();}
     public User save(User user) {return this.userRepository.save(user);}
 
-    //probar excepcion
+    //probar excepcion: predeterminadas o propias?
     public User one(Long id) throws ChangeSetPersister.NotFoundException {
         return this.userRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
