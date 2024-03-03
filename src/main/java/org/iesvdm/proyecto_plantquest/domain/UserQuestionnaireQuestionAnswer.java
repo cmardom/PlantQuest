@@ -17,15 +17,19 @@ public class UserQuestionnaireQuestionAnswer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "user",    nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user", nullable = false)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "questionnaire",    nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "questionnaire", nullable = false)
     private Questionnaire questionnaire;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "question",    nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "answer",    nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "answer", nullable = false)
     private Answer answer;
 }

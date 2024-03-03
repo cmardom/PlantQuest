@@ -22,7 +22,8 @@ public class Answer {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne (fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "answerList",    nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "question", nullable = false)
     private Question question;
 
     @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
