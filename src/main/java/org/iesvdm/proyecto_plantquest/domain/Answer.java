@@ -22,7 +22,10 @@ public class Answer {
     @Column(name = "text")
     private String text;
 
-    @OneToMany(mappedBy = "answerID", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.LAZY, optional = false)    @JoinColumn(name = "answerList",    nullable = false)
+    private Question question;
+
+    @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
 

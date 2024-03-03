@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name="question")
 @Data
@@ -22,8 +24,9 @@ public class Question {
     private String text;
 
     @Column(name = "answers")
+    @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Answer> answerList;
 
-    @OneToMany(mappedBy = "questionID", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 }

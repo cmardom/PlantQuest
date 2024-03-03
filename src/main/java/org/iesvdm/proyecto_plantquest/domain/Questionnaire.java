@@ -28,6 +28,6 @@ public class Questionnaire {
     @Column(name = "questions")
     private List<Question> questionList;
 
-    @OneToMany(mappedBy = "questionnaireID", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "questionnaire", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 }
