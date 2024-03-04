@@ -26,6 +26,7 @@ public class Questionnaire {
     private LocalDateTime dateTime;
 
     @Column(name = "questions")
+    @OneToMany
     private List<Question> questionList;
 
     @OneToMany(mappedBy = "questionnaire", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

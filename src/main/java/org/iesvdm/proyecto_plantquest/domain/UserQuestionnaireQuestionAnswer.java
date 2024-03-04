@@ -26,7 +26,7 @@ public class UserQuestionnaireQuestionAnswer {
     private Questionnaire questionnaire;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "question_id", nullable = false)
+    @JoinColumn(name = "question", nullable = false)
     private Question question;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
