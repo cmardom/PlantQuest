@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/questions")
 public class QuestionController {
 
@@ -40,12 +40,12 @@ public class QuestionController {
         return ResponseEntity.ok(responseAll);
     }
 
-    @GetMapping(value = {"", "/"}, params = {"texto-a-buscar","page", "size"})
-    public Page<Question> allPagesFilterByTexto(@RequestParam(value = "texto-a-buscar", defaultValue = "") String textoABuscar, @RequestParam(value = "page", defaultValue = "0") int page,
+    @GetMapping(value = {"", "/"}, params = {"search-param","page", "size"})
+    public Page<Question> allPagesFilterByTexto(@RequestParam(value = "texto-a-buscar", defaultValue = "") String searchParam, @RequestParam(value = "page", defaultValue = "0") int page,
                                              @RequestParam(value = "size", defaultValue = "0") int size){
         log.info("Accessing Paged Question List Filtered By ID");
 
-        return this.questionService.allPagesByTexto(textoABuscar, page, size);
+        return this.questionService.allPagesByTexto(searchParam, page, size);
 
     }
 

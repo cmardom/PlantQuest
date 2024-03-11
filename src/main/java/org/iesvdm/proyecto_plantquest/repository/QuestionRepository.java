@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    public Page<Question> findQuestionByTextContainingIgnoreCase(String textoABuscar, Pageable pageable);
+    public Page<Question> findQuestionByTextContainingIgnoreCase(String searchParam, Pageable pageable);
 }

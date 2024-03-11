@@ -31,9 +31,9 @@ public class QuestionService {
         return response;
     }
 
-    public Page<Question> allPagesByTexto(String texto, int page, int size){
+    public Page<Question> allPagesByTexto(String searchParam, int page, int size){
         Pageable pageable = PageRequest.of(page, size, Sort.by("text").ascending());
-        Page<Question> pageAll = this.questionRepository.findQuestionByTextContainingIgnoreCase(texto,pageable);
+        Page<Question> pageAll = this.questionRepository.findQuestionByTextContainingIgnoreCase(searchParam,pageable);
 
         return pageAll;
     }
