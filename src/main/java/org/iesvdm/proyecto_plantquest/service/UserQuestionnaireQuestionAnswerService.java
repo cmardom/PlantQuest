@@ -1,6 +1,7 @@
 package org.iesvdm.proyecto_plantquest.service;
 
 import org.iesvdm.proyecto_plantquest.domain.Question;
+import org.iesvdm.proyecto_plantquest.domain.User;
 import org.iesvdm.proyecto_plantquest.domain.UserQuestionnaireQuestionAnswer;
 import org.iesvdm.proyecto_plantquest.repository.UserQuestionnaireQuestionAnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,10 @@ public class UserQuestionnaireQuestionAnswerService {
 
     public Page<UserQuestionnaireQuestionAnswer> allPagesByUserID(Long userID, int page, int size){
         Pageable pageable = PageRequest.of(page, size, Sort.by("userID").ascending());
-        Page<UserQuestionnaireQuestionAnswer> pageAll = this.userQuestionnaireQuestionAnswerRepository.findUserQuestionnaireQuestionAnswerByUserID(userID, pageable);
+
+
+
+        Page<UserQuestionnaireQuestionAnswer> pageAll = this.userQuestionnaireQuestionAnswerRepository.findDistinctUserQuestionnaireQuestionAnswersByUser_ID(userID, pageable);
 
         return pageAll;
     }

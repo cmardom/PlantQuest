@@ -42,10 +42,11 @@ public class UserQuestionnaireQuestionAnswerController {
         return ResponseEntity.ok(responseAll);
     }
 
-    @GetMapping(value = {"", "/"}, params = {"userID","page", "size"})
-    public Page<UserQuestionnaireQuestionAnswer> allUserQuestionnaireQuestionAnswerFilterByUserID(@RequestParam(value = "userID", defaultValue = "") Long userID, @RequestParam(value = "page", defaultValue = "0") int page,
-                                               @RequestParam(value = "size", defaultValue = "0") int size){
-        log.info("Accessing Paged UQQA List Filtered By userID");
+    @GetMapping(value = {"", "/"}, params = {"user-id","page", "size"})
+    public Page<UserQuestionnaireQuestionAnswer> allPagesByUserID(@RequestParam(value = "user-id", defaultValue = "0") Long userID,
+                                                                                          @RequestParam(value = "page", defaultValue = "0") int page,
+                                                                                          @RequestParam(value = "size", defaultValue = "0") int size){
+        log.info("Accessing Paged UQQA Distinct List Filtered By Question Text");
 
         return this.userQuestionnaireQuestionAnswerService.allPagesByUserID(userID, page, size);
 
