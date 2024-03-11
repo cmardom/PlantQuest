@@ -6,9 +6,11 @@ import org.iesvdm.proyecto_plantquest.domain.User;
 import org.iesvdm.proyecto_plantquest.service.QuestionService;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -26,6 +28,15 @@ public class QuestionController {
     public List<Question> all(){
         log.info("Accessing Questions List");
         return this.questionService.all();
+    }
+
+    @GetMapping(value = {"", "/"})
+    public ResponseEntity<Map<String, Object>> all(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                   @RequestParam(value = "size", defaultValue = "0") int size){
+        log.info("Accessing Paged Question List");
+
+        Map<String, Object> responseAll = this.questionService.all(page, size);
+        return ResponseEntity.ok(responseAll);
     }
 
     @PostMapping({"", "/"})

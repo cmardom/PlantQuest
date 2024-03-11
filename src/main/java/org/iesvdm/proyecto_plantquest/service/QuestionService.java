@@ -4,9 +4,15 @@ import org.iesvdm.proyecto_plantquest.domain.Question;
 import org.iesvdm.proyecto_plantquest.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class QuestionService {
@@ -15,6 +21,16 @@ public class QuestionService {
     QuestionRepository questionRepository;
 
     public List<Question> all() {return this.questionRepository.findAll();}
+
+    public Map<String, Object> all(int page, int size){
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        Page<Question> pageAll = this.questionRepository.findAll(pageable);
+        Map<String, Object> response = new HashMap<>();
+
+        response.put("preguntas", pageAll.getContent());
+        return response;
+    }
+
     public Question save(Question question) {return this.questionRepository.save(question);}
 
     //probar excepcion: predeterminadas o propias?
