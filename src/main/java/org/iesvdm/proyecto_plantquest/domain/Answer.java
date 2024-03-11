@@ -23,13 +23,10 @@ public class Answer {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "question", nullable = false)
-    @JsonIgnore
-    @ToString.Exclude
-    private Question question;
 
     @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
 

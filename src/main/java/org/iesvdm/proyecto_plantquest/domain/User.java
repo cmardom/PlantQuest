@@ -1,5 +1,6 @@
 package org.iesvdm.proyecto_plantquest.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,10 +35,13 @@ public class User {
     private boolean newsletter;
 
     @Column(name = "userRole")
+    @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
 //    @Column(name = "blogComments")

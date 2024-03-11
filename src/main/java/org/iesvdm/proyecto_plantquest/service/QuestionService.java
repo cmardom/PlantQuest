@@ -27,11 +27,11 @@ public class QuestionService {
         Page<Question> pageAll = this.questionRepository.findAll(pageable);
         Map<String, Object> response = new HashMap<>();
 
-        response.put("preguntas", pageAll.getContent());
+        response.put("questions", pageAll.getContent());
         return response;
     }
 
-    public Page<Question> allPagesByTexto(String searchParam, int page, int size){
+    public Page<Question> allPagesByText(String searchParam, int page, int size){
         Pageable pageable = PageRequest.of(page, size, Sort.by("text").ascending());
         Page<Question> pageAll = this.questionRepository.findQuestionByTextContainingIgnoreCase(searchParam,pageable);
 

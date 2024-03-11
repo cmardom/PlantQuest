@@ -1,14 +1,18 @@
 package org.iesvdm.proyecto_plantquest.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.iesvdm.proyecto_plantquest.domain.Question;
 import org.iesvdm.proyecto_plantquest.domain.User;
 import org.iesvdm.proyecto_plantquest.domain.UserQuestionnaireQuestionAnswer;
 import org.iesvdm.proyecto_plantquest.service.UserQuestionnaireQuestionAnswerService;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -25,9 +29,28 @@ public class UserQuestionnaireQuestionAnswerController {
 
     @GetMapping({"", "/"})
     public List<UserQuestionnaireQuestionAnswer> all(){
-        log.info("Accessing UserQuestionnaireQuestionAnswer List");
+        log.info("Accessing UQQA List");
         return this.userQuestionnaireQuestionAnswerService.all();
     }
+
+    @GetMapping(value = {"", "/"}, params = {"page", "size"})
+    public ResponseEntity<Map<String, Object>> allPages(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                        @RequestParam(value = "size", defaultValue = "0") int size){
+        log.info("Accessing Paged UQQA List");
+
+        Map<String, Object> responseAll = this.userQuestionnaireQuestionAnswerService.allPages(page, size);
+        return ResponseEntity.ok(responseAll);
+    }
+
+    @GetMapping(value = {"", "/"}, params = {"userID","page", "size"})
+    public Page<UserQuestionnaireQuestionAnswer> allUserQuestionnaireQuestionAnswerFilterByUserID(@RequestParam(value = "userID", defaultValue = "") Long userID, @RequestParam(value = "page", defaultValue = "0") int page,
+                                               @RequestParam(value = "size", defaultValue = "0") int size){
+        log.info("Accessing Paged UQQA List Filtered By userID");
+
+        return this.userQuestionnaireQuestionAnswerService.allPagesByUserID(userID, page, size);
+
+    }
+
 
     @PostMapping({"", "/"})
     public UserQuestionnaireQuestionAnswer newUserQuestionnaireQuestionAnswer(@RequestBody UserQuestionnaireQuestionAnswer u){
