@@ -22,13 +22,20 @@ public class QuestionService {
 
     public List<Question> all() {return this.questionRepository.findAll();}
 
-    public Map<String, Object> all(int page, int size){
+    public Map<String, Object> allPages( int page, int size){
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
         Page<Question> pageAll = this.questionRepository.findAll(pageable);
         Map<String, Object> response = new HashMap<>();
 
         response.put("preguntas", pageAll.getContent());
         return response;
+    }
+
+    public Page<Question> allPagesByTexto(String texto, int page, int size){
+        Pageable pageable = PageRequest.of(page, size, Sort.by("text").ascending());
+        Page<Question> pageAll = this.questionRepository.findQuestionByTextContainingIgnoreCase(texto,pageable);
+
+        return pageAll;
     }
 
     public Question save(Question question) {return this.questionRepository.save(question);}

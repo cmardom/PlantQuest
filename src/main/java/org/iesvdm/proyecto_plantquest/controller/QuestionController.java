@@ -5,6 +5,7 @@ import org.iesvdm.proyecto_plantquest.domain.Question;
 import org.iesvdm.proyecto_plantquest.domain.User;
 import org.iesvdm.proyecto_plantquest.service.QuestionService;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,13 +31,22 @@ public class QuestionController {
         return this.questionService.all();
     }
 
-    @GetMapping(value = {"", "/"})
-    public ResponseEntity<Map<String, Object>> all(@RequestParam(value = "page", defaultValue = "0") int page,
+    @GetMapping(value = {"", "/"}, params = {"page", "size"})
+    public ResponseEntity<Map<String, Object>> allPages(@RequestParam(value = "page", defaultValue = "0") int page,
                                                    @RequestParam(value = "size", defaultValue = "0") int size){
         log.info("Accessing Paged Question List");
 
-        Map<String, Object> responseAll = this.questionService.all(page, size);
+        Map<String, Object> responseAll = this.questionService.allPages(page, size);
         return ResponseEntity.ok(responseAll);
+    }
+
+    @GetMapping(value = {"", "/"}, params = {"texto-a-buscar","page", "size"})
+    public Page<Question> allPagesFilterByTexto(@RequestParam(value = "texto-a-buscar", defaultValue = "") String textoABuscar, @RequestParam(value = "page", defaultValue = "0") int page,
+                                             @RequestParam(value = "size", defaultValue = "0") int size){
+        log.info("Accessing Paged Question List Filtered By ID");
+
+        return this.questionService.allPagesByTexto(textoABuscar, page, size);
+
     }
 
     @PostMapping({"", "/"})
