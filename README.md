@@ -3,7 +3,7 @@
 
 
 ### Introduction
-PlantQuest is designed to simplify the process of choosing indoor plants by understanding your preferences, living conditions, and gardening experience. With a few simple questions, Plantify generates a personalized plant recommendation tailored to your needs.
+PlantQuest is designed to simplify the process of choosing indoor plants by understanding your preferences, living conditions, and gardening experience. With a few simple questions, our questionnaire generates a personalized plant recommendation tailored to your needs.
 
 
 
@@ -13,3 +13,4 @@ PlantQuest is designed to simplify the process of choosing indoor plants by unde
  * Plant Database: Explore a diverse database of indoor plants with information about their care requirements, growth habits, and benefits.
  * Save Your Favorites: Create an account to save your favorite plant recommendations and track your plant collection.
 
+![alt text](https://homebusinessmag.com/wp-content/uploads/2018/11/Depositphotos_195253926_m-2015-e1543472968786.jpg)
