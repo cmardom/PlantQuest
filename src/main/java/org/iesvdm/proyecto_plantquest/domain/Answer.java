@@ -30,6 +30,8 @@ public class Answer {
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
     @ManyToOne
+    @JsonIgnore
+    @ToString.Exclude
     @JoinColumn(name = "question_id")
     private Question question;
 

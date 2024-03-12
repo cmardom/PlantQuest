@@ -30,6 +30,8 @@ public class Question {
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ToString.Exclude
     private List<Answer> answers;
 
 }
