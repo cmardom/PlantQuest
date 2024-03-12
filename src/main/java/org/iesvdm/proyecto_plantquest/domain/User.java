@@ -44,8 +44,6 @@ public class User {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
-//    @Column(name = "blogComments")
-//    private ArrayList<Comment> comments;
 
 
 }

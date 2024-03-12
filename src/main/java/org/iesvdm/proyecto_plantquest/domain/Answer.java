@@ -29,6 +29,9 @@ public class Answer {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
 
     //Incluir respuestas que llevan a propiedades de plantas para la recomendacion:
     // humedad, robustez, riego...

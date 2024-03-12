@@ -26,9 +26,9 @@ public class Questionnaire {
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
 
-    @Column(name = "questions")
-    @OneToMany
-    private List<Question> questionList;
+//    @Column(name = "questions")
+//    @OneToMany
+//    private List<Question> questionList;
 
     @OneToMany(mappedBy = "questionnaire", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnore

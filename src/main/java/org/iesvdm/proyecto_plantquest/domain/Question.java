@@ -29,4 +29,7 @@ public class Question {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Answer> answers;
+
 }
