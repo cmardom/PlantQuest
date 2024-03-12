@@ -16,7 +16,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping("/questions")
+@RequestMapping("/v1/api/questions")
 public class QuestionController {
 
     private final QuestionService questionService;

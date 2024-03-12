@@ -17,7 +17,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/userQuestionnaireQuestionAnswers")
+@RequestMapping("/v1/api/userQuestionnaireQuestionAnswers")
 public class UserQuestionnaireQuestionAnswerController {
 
     private final UserQuestionnaireQuestionAnswerService userQuestionnaireQuestionAnswerService;
@@ -51,7 +51,6 @@ public class UserQuestionnaireQuestionAnswerController {
         return this.userQuestionnaireQuestionAnswerService.allPagesByUserID(userID, page, size);
 
     }
-
 
     @PostMapping({"", "/"})
     public UserQuestionnaireQuestionAnswer newUserQuestionnaireQuestionAnswer(@RequestBody UserQuestionnaireQuestionAnswer u){

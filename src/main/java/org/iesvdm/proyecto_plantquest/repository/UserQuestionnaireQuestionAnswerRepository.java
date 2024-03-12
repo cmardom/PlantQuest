@@ -12,7 +12,7 @@ public interface UserQuestionnaireQuestionAnswerRepository extends JpaRepository
     //necesita User
 
 //    public Page<UserQuestionnaireQuestionAnswer> findDistinctByQuestionContainsIgnoreCase(String text, Pageable pageable);
-    Page<UserQuestionnaireQuestionAnswer> findDistinctUserQuestionnaireQuestionAnswersByUser_ID(Long userID, Pageable pageable);
+    Page<UserQuestionnaireQuestionAnswer> findUserQuestionnaireQuestionAnswersByUser_ID(Long userID, Pageable pageable);
 
 }
 

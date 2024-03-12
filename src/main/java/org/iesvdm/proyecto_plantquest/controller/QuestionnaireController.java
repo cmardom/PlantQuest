@@ -13,7 +13,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/questionnaires")
+@RequestMapping("/v1/api/questionnaires")
 public class QuestionnaireController {
 
     private final QuestionnaireService questionnaireService;

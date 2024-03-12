@@ -51,10 +51,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-hal-explorer</artifactId>
-        </dependency>-->
+        </dependency>
         <!--Para acceder http://localhost:8080/swagger-ui/index.html-->
         <dependency>
             <groupId>org.springdoc</groupId>

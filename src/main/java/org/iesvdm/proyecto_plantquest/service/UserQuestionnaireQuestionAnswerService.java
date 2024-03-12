@@ -34,11 +34,11 @@ public class UserQuestionnaireQuestionAnswerService {
     }
 
     public Page<UserQuestionnaireQuestionAnswer> allPagesByUserID(Long userID, int page, int size){
-        Pageable pageable = PageRequest.of(page, size, Sort.by("userID").ascending());
+        Pageable pageable = PageRequest.of(page, size, Sort.by("user_ID").ascending());
 
 
 
-        Page<UserQuestionnaireQuestionAnswer> pageAll = this.userQuestionnaireQuestionAnswerRepository.findDistinctUserQuestionnaireQuestionAnswersByUser_ID(userID, pageable);
+        Page<UserQuestionnaireQuestionAnswer> pageAll = this.userQuestionnaireQuestionAnswerRepository.findUserQuestionnaireQuestionAnswersByUser_ID(userID, pageable);
 
         return pageAll;
     }
