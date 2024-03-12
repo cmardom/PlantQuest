@@ -13,4 +13,4 @@ PlantQuest is designed to simplify the process of choosing indoor plants by unde
  * Plant Database: Explore a diverse database of indoor plants with information about their care requirements, growth habits, and benefits.
  * Save Your Favorites: Create an account to save your favorite plant recommendations and track your plant collection.
 
-![alt text](https://homebusinessmag.com/wp-content/uploads/2018/11/Depositphotos_195253926_m-2015-e1543472968786.jpg)
+![alt text](https://images.unsplash.com/photo-1591088761584-d3f8540fc587?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
