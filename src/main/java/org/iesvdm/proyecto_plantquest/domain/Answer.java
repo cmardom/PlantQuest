@@ -29,7 +29,7 @@ public class Answer {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
     @JoinColumn(name = "question_id")

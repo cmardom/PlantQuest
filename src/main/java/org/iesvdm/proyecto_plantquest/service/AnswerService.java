@@ -12,7 +12,11 @@ import java.util.List;
 public class AnswerService {
     
     @Autowired
-    AnswerRepository answerRepository;
+    public final AnswerRepository answerRepository;
+
+    public AnswerService(AnswerRepository answerRepository) {
+        this.answerRepository = answerRepository;
+    }
 
     public List<Answer> all() {return this.answerRepository.findAll();}
     public Answer save(Answer answer) {return this.answerRepository.save(answer);}

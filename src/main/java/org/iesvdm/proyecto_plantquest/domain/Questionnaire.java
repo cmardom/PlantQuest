@@ -20,9 +20,6 @@ public class Questionnaire {
     @EqualsAndHashCode.Include
     private Long ID;
 
-    @Column(name = "title")
-    private String title;
-
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
 
