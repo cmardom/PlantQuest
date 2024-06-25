@@ -29,12 +29,11 @@ public class Answer {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
-    @ToString.Exclude
-    @JoinColumn(name = "question_id")
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "question", nullable = false, foreignKey = @ForeignKey(name = "id_question"))
     private Question question;
 
-    //Incluir respuestas que llevan a propiedades de plantas para la recomendacion:
-    // humedad, robustez, riego...
+    @Column(name = "propertyValue")
+    private String propertyValue;
 }

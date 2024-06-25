@@ -2,7 +2,6 @@ package org.iesvdm.proyecto_plantquest.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.proyecto_plantquest.domain.Question;
-import org.iesvdm.proyecto_plantquest.domain.User;
 import org.iesvdm.proyecto_plantquest.service.QuestionService;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
@@ -41,7 +40,8 @@ public class QuestionController {
     }
 
     @GetMapping(value = {"", "/"}, params = {"search-param","page", "size"})
-    public Page<Question> allPagesFilterByText(@RequestParam(value = "search-param", defaultValue = "") String searchParam, @RequestParam(value = "page", defaultValue = "0") int page,
+    public Page<Question> allPagesFilterByText(@RequestParam(value = "search-param", defaultValue = "") String searchParam,
+                                               @RequestParam(value = "page", defaultValue = "0") int page,
                                              @RequestParam(value = "size", defaultValue = "0") int size){
         log.info("Accessing Paged Question List Filtered By ID");
 

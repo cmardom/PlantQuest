@@ -55,7 +55,7 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-hal-explorer</artifactId>
         </dependency>
-        <!--Para acceder http://localhost:8080/swagger-ui/index.html-->
+        <!--Para acceder http://localhost:8080/swagger-ui/index.html -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

@@ -29,9 +29,13 @@ public class Question {
     @ToString.Exclude
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
-    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnore
     @ToString.Exclude
-    private Answer answer;
+    private List<Answer> answers;
+
+    @Column(name = "property")
+    private String property;
+
 
 }
