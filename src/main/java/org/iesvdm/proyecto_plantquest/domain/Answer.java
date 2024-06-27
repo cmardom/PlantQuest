@@ -30,10 +30,10 @@ public class Answer {
     private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "question", nullable = false, foreignKey = @ForeignKey(name = "id_question"))
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "question", nullable = true, foreignKey = @ForeignKey(name = "id_question"))
     private Question question;
 
     @Column(name = "propertyValue")
-    private String propertyValue;
+    private double propertyValue;
 }

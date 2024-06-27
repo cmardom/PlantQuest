@@ -45,7 +45,16 @@ public class Family {
     private int exhibit;
 
     @Column
+    private int humidity;
+
+    @Column
+    private int temperature;
+
+    @Column
     private int toxicity;
+
+    @Column
+    private int watering;
 
     @Column
     private int type;

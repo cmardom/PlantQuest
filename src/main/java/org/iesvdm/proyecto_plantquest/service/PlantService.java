@@ -23,17 +23,17 @@ public class PlantService {
     public List<Plant> getAllPlants() {return  this.plantRepository.findAll();}
 
     public Map<String, Object> allPages(int page, int size){
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
         Page<Plant> pages = this.plantRepository.findAll(pageable);
         Map<String, Object> map = new HashMap<String, Object>();
 
         map.put("pages", pages.getContent());
         return map;
     }
-//findPlantByDescriptionContainingIgnoreCase
+//findPlantsByDescriptionContainingIgnoreCase
     public Page<Plant> getAllPlantsByDescriptionContainingIgnoreCase(String text, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("text").ascending());
-        Page<Plant> pageAll = this.plantRepository.findPlantByDescriptionContainingIgnoreCase(text, pageable);
+        Page<Plant> pageAll = this.plantRepository.findPlantsByDescriptionContainingIgnoreCase(text, pageable);
         return pageAll;
     }
 
