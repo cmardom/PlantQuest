@@ -44,9 +44,10 @@ INSERT INTO Answer (text, question, property_value) VALUES
                                                         ('I have children', 8, 2),
                                                         ('Both', 8, 3),
                                                         ('Neither', 8, 4),
-                                                        ('Once a week', 9, 1),
-                                                        ('Every two weeks', 9, 2),
-                                                        ('Once a month or less', 9, 3),
+                                                        ('Every other day', 9, 1),
+                                                        ('Once a week', 9, 2),
+                                                        ('Every two weeks', 9, 3),
+                                                        ('Once a month or less', 9, 4),
                                                         ('Green leafy plants', 10, 1),
                                                         ('Flowering plants', 10, 2),
                                                         ('Cacti and succulents', 10, 3);

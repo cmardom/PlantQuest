@@ -35,5 +35,5 @@ public class Answer {
     private Question question;
 
     @Column(name = "propertyValue")
-    private double propertyValue;
+    private int propertyValue;
 }
