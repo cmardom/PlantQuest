@@ -29,8 +29,10 @@ public class Family {
     @Column
     private String scientificName;
 
-    @Column
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+
 
     @Column
     private int[] lightHours;

@@ -23,7 +23,8 @@ public class Plant {
     @Column
     private String name;
 
-    @Column
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
