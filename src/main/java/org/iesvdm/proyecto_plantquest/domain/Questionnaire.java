@@ -23,8 +23,15 @@ public class Questionnaire {
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @OneToMany
     private List<Question> questions;
+
+    @OneToMany
+    private List<Answer> answers;
 
     @OneToMany
     private List<Recommendation> recommendations;

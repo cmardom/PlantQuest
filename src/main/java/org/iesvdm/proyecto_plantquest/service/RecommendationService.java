@@ -1,14 +1,17 @@
 package org.iesvdm.proyecto_plantquest.service;
 
 import org.iesvdm.proyecto_plantquest.domain.Family;
+import org.iesvdm.proyecto_plantquest.domain.Questionnaire;
 import org.iesvdm.proyecto_plantquest.domain.Recommendation;
 import org.iesvdm.proyecto_plantquest.repository.FamilyRepository;
+import org.iesvdm.proyecto_plantquest.repository.QuestionnaireRepository;
 import org.iesvdm.proyecto_plantquest.repository.RecommendationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,10 +24,14 @@ public class RecommendationService {
     @Autowired
     public final FamilyRepository familyRepository;
 
+    @Autowired
+    public final QuestionnaireRepository questionnaireRepository;
 
-    public RecommendationService(RecommendationRepository recommendationRepository, FamilyRepository familyRepository) {
+
+    public RecommendationService(RecommendationRepository recommendationRepository, FamilyRepository familyRepository, QuestionnaireRepository questionnaireRepository) {
         this.recommendationRepository = recommendationRepository;
         this.familyRepository = familyRepository;
+        this.questionnaireRepository = questionnaireRepository;
     }
 
     public List<Recommendation> getRecommendations() {
@@ -44,15 +51,17 @@ public class RecommendationService {
         ? this.recommendationRepository.save(recommendation) : null)).orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 
-    public List<Recommendation> recommendationsResult(int[] answers) {
+    public List<Recommendation> recommendationsResult() throws NullPointerException{
         List<Family> families = familyRepository.findAll();
 
-        List<Recommendation> recommendations = families.stream()
-                .map(family -> new Recommendation(family, matchesCount(family, answers)))
+        Object[] answers = questionnaireRepository.findAll().stream().map(Questionnaire::getAnswers).toArray();
+
+        int[]answers2 = Arrays.stream(answers).mapToInt(obj -> (int)obj).toArray();
+
+        return families.stream()
+                .map(family -> new Recommendation(family, matchesCount(family, answers2)))
                 .sorted((r1, r2) -> Integer.compare(r2.getMatches(), r1.getMatches())) // Ordenar por coincidencias
                 .collect(Collectors.toList());
-
-        return recommendations;
     }
 
     private int matchesCount(Family family, int[] answers) {

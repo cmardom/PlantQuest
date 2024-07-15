@@ -38,6 +38,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Questionnaire> questionnaires;
+
 
     @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Recommendation> recommendations;

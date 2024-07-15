@@ -1,7 +1,9 @@
 package org.iesvdm.proyecto_plantquest.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.iesvdm.proyecto_plantquest.domain.Questionnaire;
 import org.iesvdm.proyecto_plantquest.domain.Recommendation;
+import org.iesvdm.proyecto_plantquest.service.QuestionnaireService;
 import org.iesvdm.proyecto_plantquest.service.RecommendationService;
 
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +16,7 @@ import java.util.List;
 @RequestMapping("/v1/api/recommendations")
 public class RecommendationController {
 
-    private final RecommendationService recommendationService;
+    private RecommendationService recommendationService = null;
 
     public RecommendationController(RecommendationService recommendationService) {
         this.recommendationService = recommendationService;
@@ -41,10 +43,13 @@ public class RecommendationController {
         return this.recommendationService.replace(id, recommendation);
     }
 
-//    @ResponseBody
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    @DeleteMapping("/{id}")
-//    public void deleteRecommendation(@PathVariable("id") Long id) throws ChangeSetPersister.NotFoundException {
-//        this.recommendationService.de(id);
-//    }
+    @GetMapping({"", "/result"})
+    public List<Recommendation> recommendationsResult() {
+
+        return recommendationService.recommendationsResult();
+
+    }
+
+
+
 }
