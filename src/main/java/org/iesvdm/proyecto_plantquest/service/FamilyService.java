@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,5 +54,51 @@ public class FamilyService {
     public void delete(Long id) throws ChangeSetPersister.NotFoundException {
         this.familyRepository.findById(id).map(p-> {this.familyRepository.delete(p);
             return p;}).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    }
+
+//    public List<Family> getIdealFamily (int[] answers){
+//
+//        List<Family> families = familyRepository.findAll();
+//        int bestMatch = 0;
+//
+//
+//        for(Family family : families){
+//            int matches = matchesCount(family, answers);
+//            if(matches > bestMatch){
+//                bestMatch = matches;
+//
+//            }
+//
+//        }
+//        return family;
+//
+//    }
+
+    private int matchesCount(Family family, int[] answers){
+        int matches = 0;
+
+        matches += compareProperties(family.getLightHours(), answers[0]);
+        matches += compareProperties(family.getLightType(), answers[1]);
+        matches += compareProperties(family.getLightOrientation(), answers[2]);
+        matches += compareProperties(family.getSize(), answers[3]);
+        matches += compareProperties(family.getExhibit(), answers[4]);
+        matches += compareProperties(family.getHumidity(), answers[5]);
+        matches += compareProperties(family.getTemperature(), answers[6]);
+        matches += compareProperties(family.getToxicity(), answers[7]);
+        matches += compareProperties(family.getWatering(), answers[8]);
+        matches += compareProperties(family.getType(), answers[9]);
+
+        return matches;
+
+
+    }
+
+    private int compareProperties(int[] property, int answer){
+        for (int value : property){
+            if (value == answer){
+                return 1;
+            }
+        }
+        return 0;
     }
 }
