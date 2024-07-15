@@ -34,4 +34,6 @@ public class Recommendation {
     @Column (name = "matches")
     private int matches;
 
+    public Recommendation(Family family, int i) {
+    }
 }
