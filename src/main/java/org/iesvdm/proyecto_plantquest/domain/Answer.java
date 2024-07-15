@@ -23,13 +23,6 @@ public class Answer {
     @Column(name = "text")
     private String text;
 
-
-    @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonIgnore
-    @ToString.Exclude
-    private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
-
-
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "question", nullable = true, foreignKey = @ForeignKey(name = "id_question"))
     private Question question;

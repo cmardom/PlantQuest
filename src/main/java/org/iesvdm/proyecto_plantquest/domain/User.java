@@ -39,10 +39,8 @@ public class User {
     private UserRole userRole;
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonIgnore
-    @ToString.Exclude
-    private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Recommendation> recommendations;
 
 
 

@@ -69,6 +69,14 @@ public class Family {
     @ToString.Exclude
     private List<Plant> plants;
 
+    @ManyToMany
+    @JoinTable(
+            name = "recommendation_family",
+            joinColumns = @JoinColumn(name = "family_id"),
+            inverseJoinColumns = @JoinColumn(name = "recommendation_id")
+    )
+    private List<Recommendation> recommendations;
+
 
 
 }

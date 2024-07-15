@@ -23,12 +23,11 @@ public class Questionnaire {
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
 
-//    @Column(name = "questions")
-//    @OneToMany
-//    private List<Question> questionList;
+    @OneToMany
+    private List<Question> questions;
 
-    @OneToMany(mappedBy = "questionnaire", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonIgnore
-    @ToString.Exclude
-    private List<UserQuestionnaireQuestionAnswer> userQuestionnaireQuestionAnswerList;
+    @OneToMany
+    private List<Recommendation> recommendations;
+
+
 }
