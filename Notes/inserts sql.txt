@@ -1,0 +1,137 @@
+Menos de 3 horas, null, 1, 1
+De 3 a 6 horas, null, 1, 2
+De 6 a 9 horas, null, 1, 3
+Más de 9 horas, null, 1, 4
+Baja, null, 2, 1
+Indirecta o filtrada, null, 2, 2
+Brillante, null, 2, 3
+Directa, null, 2, 4
+Norte, null, 3, 1
+Sur, null, 3, 2
+Este, null, 3, 3
+Oeste, null, 3, 4 
+Pequeño, null, 4, 1 
+Mediano, null, 4, 2
+Grande, null, 4, 3
+En la mesa, null, 5, 1 
+En el suelo, null, 5, 2
+Colgando, null, 5, 3
+Muy poca (menos de 35%), null, 6, 1
+Moderada (alrededor de 45%), null, 6, 2 
+Mucha (más de 50%), null, 6, 3
+Menos de 20º, null, 6, 1
+De 20º a 25º, null, 7, 2
+De 25º a 30º, null, 7, 3
+Más 30º, null, 7, 4
+Tengo mascotas, null, 8, 1
+Tengo niños, null,  8, 2
+Ambos, null, 8, 3
+Ninguno, null, 8, 4 
+Una vez a la semana, null, 9, 1
+Cada dos semanas, null, 9, 2
+Una vez al mes o menos, null, 9, 3
+Plantas de hojas verdes, null, 10, 1
+Plantas que florezcan, null, 10, 2
+Cactus y crasas, null, 10, 3
+
+
+USE proyecto_plantquest;
+
+INSERT INTO Answer (text, question, property_value) VALUES
+                                                       ('Menos de 3 horas', 1, 1),
+                                                       ('De 3 a 6 horas', 1, 2),
+                                                       ('De 6 a 9 horas', 1, 3),
+                                                       ('Más de 9 horas', 1, 4),
+                                                       ('Baja', 2, 1),
+                                                       ('Indirecta o filtrada', 2, 2),
+                                                       ('Brillante', 2, 3),
+                                                       ('Directa', 2, 4),
+                                                       ('Norte', 3, 1),
+                                                       ('Sur', 3, 2),
+                                                       ('Este', 3, 3),
+                                                       ('Oeste', 3, 4),
+                                                       ('Pequeño', 4, 1),
+                                                       ('Mediano', 4, 2),
+                                                       ('Grande', 4, 3),
+                                                       ('En la mesa', 5, 1),
+                                                       ('En el suelo', 5, 2),
+                                                       ('Colgando', 5, 3),
+                                                       ('Muy poca (menos de 35%)', 6, 1),
+                                                       ('Moderada (alrededor de 45%)', 6, 2),
+                                                       ('Mucha (más de 50%)', 6, 3),
+                                                       ('Menos de 20º', 7, 1),
+                                                       ('De 20º a 25º', 7, 2),
+                                                       ('De 25º a 30º', 7, 3),
+                                                       ('Más 30º', 7, 4),
+                                                       ('Tengo mascotas', 8, 1),
+                                                       ('Tengo niños', 8, 2),
+                                                       ('Ambos', 8, 3),
+                                                       ('Ninguno', 8, 4),
+                                                       ('Una vez a la semana', 9, 1),
+                                                       ('Cada dos semanas', 9, 2),
+                                                       ('Una vez al mes o menos', 9, 3),
+                                                       ('Plantas de hojas verdes', 10, 1),
+                                                       ('Plantas que florezcan', 10, 2),
+                                                       ('Cactus y crasas', 10, 3);
+
+
+
+
+
+INSERT INTO Answer (text, property_value) VALUES
+                                             ('Menos de 3 horas', 1),
+                                             ('De 3 a 6 horas', 2),
+                                             ('De 6 a 9 horas', 3),
+                                             ('Más de 9 horas', 4),
+                                             ('Baja', 1),
+                                             ('Indirecta o filtrada', 2),
+                                             ('Brillante', 3),
+                                             ('Directa', 4),
+                                             ('Norte', 1),
+                                             ('Sur', 2),
+                                             ('Este', 3),
+                                             ('Oeste', 4),
+                                             ('Pequeño', 1),
+                                             ('Mediano', 2),
+                                             ('Grande', 3),
+                                             ('En la mesa', 1),
+                                             ('En el suelo', 2),
+                                             ('Colgando', 3),
+                                             ('Muy poca (menos de 35%)', 1),
+                                             ('Moderada (alrededor de 45%)', 2),
+                                             ('Mucha (más de 50%)', 3),
+                                             ('Menos de 20º', 1),
+                                             ('De 20º a 25º', 2),
+                                             ('De 25º a 30º', 3),
+                                             ('Más 30º', 4),
+                                             ('Tengo mascotas', 1),
+                                             ('Tengo niños', 2),
+                                             ('Ambos', 3),
+                                             ('Ninguno', 4),
+                                             ('Una vez a la semana', 1),
+                                             ('Cada dos semanas', 2),
+                                             ('Una vez al mes o menos', 3),
+                                             ('Plantas de hojas verdes', 1),
+                                             ('Plantas que florezcan', 2),
+                                             ('Cactus y crasas', 3);
+
+
+
+
+¿Cuántas horas de luz natural recibes en tu hogar?, lightHours
+¿Qué tipo de luz recibes en casa?, lightType
+¿Cuál es la dirección de tus ventanas? , lightOrientation
+¿Cuánto espacio tienes para tus plantas?, size
+¿Cómo te gustaría exhibir tu planta en casa?, exhibit
+¿Cuánta humedad hay normalmente en este lugar?, humidity
+¿Y la temperatura media?, temperature
+¿Tienes mascotas o niños que puedan interactuar con las plantas?, toxicity
+¿Con qué frecuencia podrías regalarla?, watering
+¿Qué tipo de planta prefieres?, type
+
+
+
+
+
+
+

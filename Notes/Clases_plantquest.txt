@@ -1,0 +1,84 @@
+PLANTA
+Imagen
+Nombre común
+Familia
+
+
+
+
+FAMILIA
+Imagen
+Nombre común
+Horas de luz
+Tipo de luz
+Orientación de la luz
+Tamaño
+Exhibición
+Humedad
+Temperatura
+Toxicidad
+Tipo
+Especies (plantas)
+
+image,
+name,
+description,
+lightHours,
+lightType,
+lightOrientation,
+size,
+exhibit,
+humidity,
+temperature,
+toxicity,
+watering,
+type,
+plants
+
+
+
+Less than 3 hours
+From 3 to 6 hours
+From 6 to 9 hours
+More than 9 hours
+
+Low
+Indirect or filtered
+Bright
+Direct
+
+Norte: Luz indirecta y constante.
+Sur: Luz directa todo el día, más en invierno.
+Este: Luz directa por la mañana.
+Oeste: Luz directa por la tarde.
+
+Small
+Medium
+Large
+
+On the table
+On the floor
+Hanging
+
+Very little (less than 35%)
+Moderate (around 45%)
+A lot (more than 50%)
+
+Less than 20º
+From 20º to 25º
+From 25º to 30º
+More than 30º
+
+I have pets
+I have children
+Both
+Neither
+
+Every other day
+Once a week
+Every two weeks
+Once a month or less
+
+Green leafy plants
+Flowering plants
+Cacti and succulents

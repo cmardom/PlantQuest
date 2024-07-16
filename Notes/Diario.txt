@@ -1,0 +1,9 @@
+25/6
+hacer todo back de planta
+hacer clase familia
+
+27/06
+todo back de familia
+sql de answer y question
+
+-> findQuestionByTextContainingIgnoreCase? no funciona
