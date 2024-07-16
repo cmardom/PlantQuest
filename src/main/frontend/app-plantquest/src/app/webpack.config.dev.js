@@ -10,4 +10,16 @@ module.exports = merge(common, {
     open: true,
     static: ['./'],
   },
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+    ],
+  },
 });

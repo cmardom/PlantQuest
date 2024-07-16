@@ -5,6 +5,7 @@ import {HeroComponent} from "./hero/hero.component";
 import {CarrouselComponent} from "./carrousel/carrousel.component";
 import {FooterComponent} from "./footer/footer.component";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,4 +15,6 @@ import {FooterComponent} from "./footer/footer.component";
 })
 export class AppComponent {
   title = 'app-plantquest';
+
+
 }
