@@ -1,0 +1,137 @@
+
+/*** VARIABLES ***/
+/* Colors */
+$black: #1d1f20;
+$blue: #27c754;
+$green: #487916;
+$yellow: #fddc32;
+$white: #fafafa;
+
+.body1 {
+  display: block;
+  margin: 0 auto;
+  max-width: 100rem;
+  padding: 1rem;
+}
+
+
+ol.gradient-list {
+  font-size: larger;
+  counter-reset: gradient-counter;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+  > li {
+    background: white;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    counter-increment: gradient-counter;
+    margin-top: 1rem;
+    min-height: 3rem;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+    &::before,
+    &::after {
+      background: linear-gradient(135deg, $blue 0%,$green 100%);
+      border-radius: 1rem 1rem 0 1rem;
+      content: '';
+      height: 3rem;
+      left: -1rem;
+      overflow: hidden;
+      position: absolute;
+      top: -1rem;
+      width: 3rem;
+    }
+    &::before {
+      align-items: flex-end;
+
+      content: counter(gradient-counter);
+      color: $white;
+      display: flex;
+      font-size: 2rem;
+      font-weight: bold;
+      //font: 900 1.5em/1 'Montserrat';
+      justify-content: flex-end;
+      padding: 0.125em 0.25em;
+      z-index: 1;
+    }
+    @for $i from 1 through 5 {
+      &:nth-child(10n+#{$i}):before {
+        background: linear-gradient(135deg, rgba($green, $i * 0.2) 0%,rgba($yellow, $i * 0.2) 100%);
+      }
+    }
+    @for $i from 6 through 10 {
+      &:nth-child(10n+#{$i}):before {
+        background: linear-gradient(135deg, rgba($green, 1 - (($i - 5) * 0.2)) 0%,rgba($yellow, 1 - (($i - 5) * 0.2)) 100%);
+      }
+    }
+    + li {
+      margin-top: 2rem;
+    }
+  }
+}
+
+
+
+
+
+#formContact {
+  position: relative;
+  width: 800px;
+  margin: 50px auto 100px auto;
+
+
+
+  .input1 {
+    font-size: 1em;
+    width: 600px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+
+    background: transparent;
+    outline: none;
+
+    border: solid 1px #b3aca7;
+    //border-bottom: none;
+
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+
+
+
+    #submit:hover{
+      background-color: #FDDC32FF;
+    }
+  }
+
+
+
+  .textarea1 {
+    width: 600px;
+    //max-width: 600px;
+    height: 110px;
+    max-height: 110px;
+    padding: 15px;
+
+    background: transparent;
+    outline: none;
+
+    font-size: 0.875em;
+
+    border: solid 1px #b3aca7;
+
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+
+  .submit1:hover{
+    background-color: #487916;
+    color: white;
+  }
+
+}
+
+
