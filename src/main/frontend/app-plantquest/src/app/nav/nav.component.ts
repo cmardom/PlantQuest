@@ -8,7 +8,7 @@ import {NgOptimizedImage} from "@angular/common";
     NgOptimizedImage,
   ],
   templateUrl: './nav.component.html',
-  styleUrl: '/dist/css/bootstrap.css',
+  styleUrl: 'nav.component.scss',
 })
 export class NavComponent {
     logoPath = '/assets/images/Logo.png';
